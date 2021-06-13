@@ -8,7 +8,7 @@ class TodosOsProdutos extends Component {
         {this.props.busca.map((produto, index) => {
           return (
             <li key={index}>
-              <Produto nome={produto[0] } preco={produto[1]}></Produto>
+              <Produto nome={produto[0][0]} preco={produto[0][1]}></Produto>
             </li>
           );
         })}

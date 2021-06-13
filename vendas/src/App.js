@@ -15,26 +15,25 @@ class App extends Component {
 
   buscarProduto(busca) {
     this.busca = busca;
-    console.log(this.busca);
-    // request de todos os produtos com o inicio desse nome
-    // const novoState = array da api
-    //this.setState(novoState)
+    api.get(`/${busca}`).then((res) => {
+      const produtos = res.data.data;
+      console.log(res.data)
+      var result = [];
+      produtos.map((produto,index) =>{
+        result.push([[produto.nome, produto.preco]])
+      })
+      this.setState({produtosEncontados:result})
+    });
   }
 
   componentDidMount() {
-    api.get("").then((res) => {
-      const produtos = res.data;
-      var result = []
-      for(var i in produtos['response']){
-        var itens = []
-        for(var j in produtos['response'][i] ){
-          itens.push(j)
-        }
-        result.push([i, itens])
-      }
-      const state = this.state.produtosEncontados.push.apply(this.state.produtosEncontados, result)
+    api.get(`${this.busca}`).then((res) => {
+      const produtos = res.data.data;
+      var result = [];
+      produtos.map((produto,index) =>{
+        result.push([[produto.nome, produto.preco]])
+      })
       this.setState({produtosEncontados:result})
-      console.log(this.state)
     });
   }
 

@@ -8,12 +8,12 @@ router.get("/", (req, res, next) => {
   db.collection("produtos")
     .get()
     .then((querySnapshot) => {
-      let data = {};
+      let data = [];
       querySnapshot.forEach((doc) => {
-        data[doc.id] = doc.data();
+        data.push(doc.data());
       });
       res.status(200).send({
-        response: data,
+        data,
       });
     })
     .catch((error) => {
@@ -50,12 +50,12 @@ router.get("/:id_produto", (req, res, next) => {
     .where("nome", "<=", id + "~")
     .get()
     .then((querySnapshot) => {
-      let data = {};
+      let data = [];
       querySnapshot.forEach((doc) => {
-        data[doc.id] = doc.data();
+        data.push(doc.data());
       });
       res.status(200).send({
-        response: data,
+        data,
       });
     })
     .catch((error) => {

@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import api from "../../api"
 
 class Produto extends Component {
   constructor(props) {
@@ -13,7 +14,14 @@ class Produto extends Component {
 
   _apagar(event) {
     console.log("apagando");
-    // mandar pro servidor o novo estado do produto
+    api.delete("", {
+      body: {
+        nome: this.nome
+      }
+    }).then( res => { console.log("Produto Removido")})
+    .catch(err => {console.log(err)})
+
+
   }
 
   render() {
@@ -22,7 +30,7 @@ class Produto extends Component {
         <header>
           <h3>{this.props.nome}</h3>
         </header>
-        <p>{this.props.preco}</p>
+        <p>R$: {this.props.preco}</p>
         <button onClick={this._alterar.bind(this)}>Editar...</button>
         <button onClick={this._apagar.bind(this)}>Apagar...</button>
       </section>
