@@ -8,22 +8,13 @@ class Produto extends Component {
     this.preco = this.props.preco;
   }
 
-  _alterar(event) {
+  _submitNovoValor() {
     console.log("editando");
-    api
-      .patch(
-        "",
-        {
-          body: {
-            nome: this.nome,
-            preco: 9999999,
-          },
-        },
-        { headers: { "Content-Type": "application/json" } }
-      )
-      .then((res) => {
-        console.log("editado");
-      });
+    api.patch("", { nome: this.nome, preco: 0 });
+  }
+
+  _alterar(event) {
+    
   }
 
   _apagar(event) {

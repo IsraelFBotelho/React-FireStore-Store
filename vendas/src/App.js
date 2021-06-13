@@ -10,6 +10,7 @@ class App extends Component {
     this.busca = "";
     this.state = {
       produtosEncontados: [],
+      showForm: false,
     };
   }
 
@@ -17,23 +18,24 @@ class App extends Component {
     this.busca = busca;
     api.get(`/${busca}`).then((res) => {
       const produtos = res.data.data;
-      console.log(res.data)
+
       var result = [];
-      produtos.map((produto,index) =>{
-        return result.push([[produto.nome, produto.preco]])
-      })
-      this.setState({produtosEncontados:result})
+      produtos.map((produto, index) => {
+        return result.push([[produto.nome, produto.preco]]);
+      });
+      this.setState({ produtosEncontados: result });
     });
   }
 
   componentDidMount() {
     api.get(`${this.busca}`).then((res) => {
       const produtos = res.data.data;
+
       var result = [];
-      produtos.map((produto,index) =>{
-        return result.push([[produto.nome, produto.preco]])
-      })
-      this.setState({produtosEncontados:result})
+      produtos.map((produto, index) => {
+        return result.push([[produto.nome, produto.preco]]);
+      });
+      this.setState({ produtosEncontados: result });
     });
   }
 
