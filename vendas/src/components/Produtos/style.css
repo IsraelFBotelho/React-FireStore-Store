@@ -1,0 +1,12 @@
+.todosprodutos_lista {
+  display: flex;
+}
+
+.todosprodutos_item {
+  display: flex;
+}
+
+ul li{
+    margin-right: 2%;
+
+}

@@ -1,4 +1,7 @@
 .main-app_header {
-  display:flex;
+  background-color: #8A5BA4;
   text-align: center;
+  font-size: xx-large;
+  font-weight: bold;
+  color: #ffcf00
 }

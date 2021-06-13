@@ -1,10 +1,11 @@
 import React, { Component } from "react";
 import Produto from "../Produto";
+import "./style.css"
 
 class TodosOsProdutos extends Component {
   render() {
     return (
-      <ul>
+      <ul className="todosprodutos_lista">
         {this.props.busca.map((produto, index) => {
           return (
             <li key={index}>

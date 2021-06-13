@@ -2,8 +2,10 @@ import { Component } from "react";
 import "./assets/style.css";
 import BuscarProduto from "./components/BuscarProduto";
 import TodosOsProdutos from "./components/Produtos";
-import api from "./api";
 import AdicionarProduto from "./components/AdicionarProduto";
+import api from "./api";
+
+import "./assets/style.css";
 
 class App extends Component {
   constructor(props) {
@@ -42,7 +44,9 @@ class App extends Component {
   render() {
     return (
       <section>
-        <header className="main-app_header"> Produtos </header>
+        <header className="main-app_header">
+          <h3>Produtos</h3>
+        </header>
         <BuscarProduto
           buscarProduto={this.buscarProduto.bind(this)}
         ></BuscarProduto>

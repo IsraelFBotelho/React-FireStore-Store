@@ -54,6 +54,7 @@ class Produto extends Component {
           <form onSubmit={this._submitNovoValor.bind(this)}>
             <input
               type="number"
+              step="0.01"
               placeholder="Novo preço..."
               onChange={this._handleChangeValor.bind(this)}
             ></input>
