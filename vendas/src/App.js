@@ -2,9 +2,7 @@ import { Component } from "react";
 import "./assets/style.css";
 import BuscarProduto from "./components/BuscarProduto";
 import TodosOsProdutos from "./components/Produtos";
-import axios from "axios"
-import api from "./api"
-
+import api from "./api";
 
 class App extends Component {
   constructor(props) {
@@ -24,19 +22,21 @@ class App extends Component {
   }
 
   componentDidMount() {
-    axios.get(`http://localhost:5000/produtos`)
-      .then(res => {
-        const produtos = res.data;
-
-        produtos.forEach(produto => {
-          const novo = [produto.nome, produto.preco]
-          const estato = [...this.state.produtosEncontados, novo]
-          this.setState({ estato });
-        })
-        
-      })
+    api.get("").then((res) => {
+      const produtos = res.data;
+      var result = []
+      for(var i in produtos['response']){
+        var itens = []
+        for(var j in produtos['response'][i] ){
+          itens.push(j)
+        }
+        result.push([i, itens])
+      }
+      const state = this.state.produtosEncontados.push.apply(this.state.produtosEncontados, result)
+      this.setState({produtosEncontados:result})
+      console.log(this.state)
+    });
   }
-
 
   render() {
     return (
