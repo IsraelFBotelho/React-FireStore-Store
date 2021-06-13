@@ -3,6 +3,7 @@ import "./assets/style.css";
 import BuscarProduto from "./components/BuscarProduto";
 import TodosOsProdutos from "./components/Produtos";
 import api from "./api";
+import AdicionarProduto from "./components/AdicionarProduto";
 
 class App extends Component {
   constructor(props) {
@@ -45,6 +46,7 @@ class App extends Component {
         <BuscarProduto
           buscarProduto={this.buscarProduto.bind(this)}
         ></BuscarProduto>
+        <AdicionarProduto></AdicionarProduto>
         <TodosOsProdutos
           busca={this.state.produtosEncontados}
         ></TodosOsProdutos>
