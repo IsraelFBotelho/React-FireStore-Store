@@ -10,7 +10,6 @@ class App extends Component {
     this.busca = "";
     this.state = {
       produtosEncontados: [],
-      showForm: false,
     };
   }
 

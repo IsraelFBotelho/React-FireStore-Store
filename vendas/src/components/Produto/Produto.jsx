@@ -6,15 +6,27 @@ class Produto extends Component {
     super(props);
     this.nome = this.props.nome;
     this.preco = this.props.preco;
+
+    this.form = 0;
+
+    this.state = {
+      showForm: false,
+    };
   }
 
   _submitNovoValor() {
     console.log("editando");
-    api.patch("", { nome: this.nome, preco: 0 });
+    api.patch("", { nome: this.nome, preco: this.form });
   }
 
   _alterar(event) {
-    
+    this.setState({
+      showForm: !this.state.showForm,
+    });
+  }
+
+  _handleChangeValor(evt) {
+    this.form = evt.target.value;
   }
 
   _apagar(event) {
@@ -35,8 +47,20 @@ class Produto extends Component {
         <header>
           <h3>{this.props.nome}</h3>
         </header>
-        <p>R$: {this.props.preco.toFixed(2)}</p>
+        <p>R$: {parseFloat(this.props.preco).toFixed(2)}</p>
         <button onClick={this._alterar.bind(this)}>Editar...</button>
+
+        {this.state.showForm ? (
+          <form onSubmit={this._submitNovoValor.bind(this)}>
+            <input
+              type="number"
+              placeholder="Novo preço..."
+              onChange={this._handleChangeValor.bind(this)}
+            ></input>
+            <button>Enviar</button>
+          </form>
+        ) : null}
+
         <button onClick={this._apagar.bind(this)}>Apagar...</button>
       </section>
     );
