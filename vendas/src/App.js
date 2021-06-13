@@ -20,7 +20,7 @@ class App extends Component {
       console.log(res.data)
       var result = [];
       produtos.map((produto,index) =>{
-        result.push([[produto.nome, produto.preco]])
+        return result.push([[produto.nome, produto.preco]])
       })
       this.setState({produtosEncontados:result})
     });
@@ -31,7 +31,7 @@ class App extends Component {
       const produtos = res.data.data;
       var result = [];
       produtos.map((produto,index) =>{
-        result.push([[produto.nome, produto.preco]])
+        return result.push([[produto.nome, produto.preco]])
       })
       this.setState({produtosEncontados:result})
     });

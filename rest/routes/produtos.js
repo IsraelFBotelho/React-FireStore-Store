@@ -65,9 +65,11 @@ router.get("/:id_produto", (req, res, next) => {
 
 // ALTERA UM PRODUTO
 router.patch("/", (req, res, next) => {
+
   const dataProduto = {
     preco: req.body.preco,
   };
+  
   db.collection("produtos")
     .where("nome", "==", req.body.nome)
     .get()
@@ -85,9 +87,10 @@ router.patch("/", (req, res, next) => {
 });
 
 // DELETA UM PRODUTO
-router.delete("/", (req, res, next) => {
+router.delete("/:id_produto", (req, res, next) => {
+  const id = req.params.id_produto;
   db.collection("produtos")
-    .where("nome", "==", req.body.nome)
+    .where("nome", "==", id)
     .get()
     .then((querySnapshot) => {
       querySnapshot.forEach((doc) => {
@@ -98,7 +101,7 @@ router.delete("/", (req, res, next) => {
       });
     })
     .catch((error) => {
-      res.status(500).send({ message: error });
+      res.status(400).send({ message: error });
     });
 });
 
