@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "./style.css";
 
 class BuscarProduto extends Component {
   constructor(props) {
@@ -21,11 +22,12 @@ class BuscarProduto extends Component {
     return (
       <form onSubmit={this._buscarProduto.bind(this)}>
         <input
+          className="buscar-produto_input"
           type="text"
           placeholder="Buscar Produto..."
           onChange={this._handleChangeBusca.bind(this)}
         ></input>
-        <button>Pesquisar</button>
+        <button className="buscar-produto_button"></button>
       </form>
     );
   }

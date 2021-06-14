@@ -1,0 +1,52 @@
+.adicionar-produto_novo {
+  display: inline-block;
+  position: relative;
+  top: 32.6px;
+  padding: 0.75%;
+
+  background-image: url("../../assets/criar.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 90%;
+  background-color: #f9facf;
+  border-radius: 5px;
+}
+
+.adicionar-produto_inputNome{
+  display: inline-block;
+  margin-left: 7%;
+  width: 40%;
+  line-height: 200%;
+  border-radius: 5px;
+  background-color:#f9facf;
+  background-image: url(../../assets/editar.png);
+  background-repeat: no-repeat;
+  background-size: 3%;
+  background-position: left;
+  padding-left: 30px;
+}
+
+.adicionar-produto_inputPreco{
+  display: inline-block;
+  width: 40%;
+  line-height: 200%;
+  border-radius: 5px;
+  background-color:#f9facf;
+  background-image: url(../../assets/editar.png);
+  background-repeat: no-repeat;
+  background-size: 3%;
+  background-position: left;
+  padding-left: 30px;
+}
+
+.adicionar-produto_enviar{
+  display: inline-block;
+  position: relative;
+  top: -3.5px;
+  padding: 0.75%;
+  background-image: url("../../assets/enviar.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 60%;
+  border-radius: 5px;
+}

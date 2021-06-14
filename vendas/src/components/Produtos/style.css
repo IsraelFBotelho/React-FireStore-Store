@@ -1,12 +1,16 @@
 .todosprodutos_lista {
-  display: flex;
+  display: grid;
+  place-items: center;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  grid-gap: 10px;
 }
 
 .todosprodutos_item {
+  position: relative;
   display: flex;
-}
-
-ul li{
-    margin-right: 2%;
-
+  margin: 20%;
+  padding:5%;
+  background-color: #a9649f;
+  border-radius: 50px 5px;
 }

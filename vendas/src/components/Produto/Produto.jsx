@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import api from "../../api";
+import "./style.css";
 
 class Produto extends Component {
   constructor(props) {
@@ -35,6 +36,7 @@ class Produto extends Component {
       .delete(`/${this.nome}`)
       .then((res) => {
         console.log("Produto Removido");
+        this.props.buscarProduto("");
       })
       .catch((erro) => {
         console.log(erro);
@@ -45,24 +47,33 @@ class Produto extends Component {
     return (
       <section>
         <header>
-          <h3>{this.props.nome}</h3>
+          <h3 className="produto_nome">{this.props.nome}</h3>
         </header>
-        <p>R$: {parseFloat(this.props.preco).toFixed(2)}</p>
-        <button onClick={this._alterar.bind(this)}>Editar...</button>
+        <p className="produto_preco">
+          R$: <strong>{parseFloat(this.props.preco).toFixed(2)}</strong>
+        </p>
+        <button
+          className="produto_editar"
+          onClick={this._alterar.bind(this)}
+        ></button>
 
         {this.state.showForm ? (
           <form onSubmit={this._submitNovoValor.bind(this)}>
             <input
+              className="produto_editar_input"
               type="number"
               step="0.01"
               placeholder="Novo preço..."
               onChange={this._handleChangeValor.bind(this)}
             ></input>
-            <button>Enviar</button>
+            <button className="produto_editar_button"></button>
           </form>
         ) : null}
 
-        <button onClick={this._apagar.bind(this)}>Apagar...</button>
+        <button
+          className="produto_apagar"
+          onClick={this._apagar.bind(this)}
+        ></button>
       </section>
     );
   }
